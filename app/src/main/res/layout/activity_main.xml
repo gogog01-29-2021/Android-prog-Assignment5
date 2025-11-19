@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Main layout for MainActivity
+     Layout structure:
+     - Top region: Title and button (horizontal LinearLayout with gray background)
+     - Middle region: Fragment container for PersonalInfo/AddressInfo fragments (takes 50% of space)
+     - Bottom region: Fragment container for SubFragment (takes 50% of space)
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TOP REGION: Contains title and "Add new member" button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="#F5F5F5">
+
+        <!-- Title TextView displays "Fragment Assignment" -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fragment Assignment"
+            android:textSize="18sp"
+            android:textColor="#2196F3"
+            android:textStyle="bold" />
+
+        <!-- Button to initiate registration flow by loading PersonalInfoFragment
+             Uses MaterialButton with rounded corners (8dp radius)
+             insetTop and insetBottom set to 0 to maintain proper padding
+        -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddMember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add new member"
+            android:textAllCaps="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="8dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp" />
+    </LinearLayout>
+
+    <!-- MIDDLE REGION: Fragment container for PersonalInfoFragment and AddressInfoFragment
+         Initially empty, fragments are added dynamically via FragmentTransaction
+         Takes 50% of remaining vertical space (layout_weight="1")
+    -->
+    <FrameLayout
+        android:id="@+id/fragmentContainerMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF" />
+
+    <!-- BOTTOM REGION: Fragment container for SubFragment
+         Always contains SubFragment which shows "Welcome..." or registration confirmation
+         Takes 50% of remaining vertical space (layout_weight="1")
+    -->
+    <FrameLayout
+        android:id="@+id/fragmentContainerSub"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#F9F9F9" />
+</LinearLayout>

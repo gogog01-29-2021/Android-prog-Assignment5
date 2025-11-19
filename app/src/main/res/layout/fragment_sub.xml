@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout for SubFragment
+     This fragment has two states:
+     1. Welcome state: Shows "Welcome..." message (tvWelcome visible, confirmationContainer gone)
+     2. Confirmation state: Shows registration details (tvWelcome gone, confirmationContainer visible)
+
+     Always displayed in the bottom region of MainActivity
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <!-- Welcome message TextView - visible by default, hidden after registration
+         Shows "Welcome..." in gray color
+    -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome..."
+        android:textSize="20sp"
+        android:textColor="#888888"
+        android:visibility="visible" />
+
+    <!-- Confirmation container - hidden by default, shown after registration completion
+         Contains all registration confirmation information
+    -->
+    <LinearLayout
+        android:id="@+id/confirmationContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <!-- Header message confirming successful registration -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registration Confirmed!"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Displays the student's name
+             Text is set programmatically from Student object
+        -->
+        <TextView
+            android:id="@+id/tvStudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Review prompt message - displayed in red color (#FF0000)
+             Critical requirement: This text must be red
+        -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please review your data!"
+            android:textSize="16sp"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Displays formatted student information
+             Format: "S[studentNumber] [age] [city]"
+             Example: "S12345 20 Seoul"
+             Text is set programmatically using Student.getFormattedInfo()
+        -->
+        <TextView
+            android:id="@+id/tvStudentInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="#333333" />
+    </LinearLayout>
+</LinearLayout>

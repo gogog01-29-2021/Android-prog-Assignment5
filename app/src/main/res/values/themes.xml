@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Application theme using MaterialComponents for Material Design support
+         Required for MaterialButton and other Material components
+         NoActionBar variant removes the default action bar
+         Extends AppCompat so it's compatible with AppCompatActivity
+    -->
+    <style name="Theme.Assignment5" parent="Theme.MaterialComponents.Light.NoActionBar" />
+</resources>
